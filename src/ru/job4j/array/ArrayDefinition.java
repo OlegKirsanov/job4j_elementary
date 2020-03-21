@@ -6,10 +6,10 @@ public class ArrayDefinition {
         String[] surnames = new String[100500];
         float[] prices = new float[40];
         String[] names = new String[4];
-        names[0] = "Ivan Ivanov";
-        names[1] = "Pyotr Petrov";
-        names[2] = "Fyodor Fyodorov";
-        names[3] = "Denis Denisov";
+        names[0] = "Ivan";
+        names[1] = "Pyotr";
+        names[2] = "Fyodor";
+        names[3] = "Denis";
         System.out.println(names[0]);
         System.out.println(names[1]);
         System.out.println(names[2]);
