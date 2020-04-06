@@ -1,0 +1,21 @@
+package ru.job4j.oop;
+
+public class User {
+    private String name;
+    private int age;
+
+    public boolean canDrive() {
+        boolean can = false;
+        if (age >= 18) {
+            can = true;
+        }
+        return can;
+    }
+
+    public static void main(String[] args) {
+        User user = new User();
+        user.name = "Vasya";
+        user.age = 15;
+        System.out.println(user.canDrive());
+    }
+}
