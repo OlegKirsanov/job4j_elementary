@@ -7,11 +7,7 @@ public class Library {
         Book book3 = new Book("East Express", 329);
         Book book4 = new Book("Old Man And The Sea", 35);
 
-        Book[] book = new Book[4];
-        book[0] = book1;
-        book[1] = book2;
-        book[2] = book3;
-        book[3] = book4;
+        Book[] book = new Book[] {book1, book2, book3, book4};
 
         for(int index = 0; index < book.length; index++) {
             System.out.println(book[index].getName() + " – " + book[index].getPageNum());
@@ -21,10 +17,12 @@ public class Library {
         book[0] = book[3];
         book[3] = temp;
 
+        System.out.println();
         for(int index = 0; index < book.length; index++) {
             System.out.println(book[index].getName() + " – " + book[index].getPageNum());
         }
 
+        System.out.println();
         for(int index = 0; index < book.length; index++) {
             if(book[index].getName().equals("Clean Code")) {
                 System.out.println(book[index].getName() + " – " + book[index].getPageNum());
