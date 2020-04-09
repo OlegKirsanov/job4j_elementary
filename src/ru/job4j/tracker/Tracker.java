@@ -71,4 +71,12 @@ public class Tracker {
             items[replaceIndex].setName(item.getName());
         }
     }
+
+    public void delete(String id) {
+        int index = indexOf(id);
+        int size = position - index;
+        System.arraycopy(items, index + 1, items, index, size);
+        items[position - 1] = null;
+        position--;
+    }
 }
