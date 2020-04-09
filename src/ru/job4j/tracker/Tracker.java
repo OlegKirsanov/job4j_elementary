@@ -18,9 +18,8 @@ public class Tracker {
      * Метод добавления заявки в хранилище
      * @param item новая заявка
      */
-    public Item add(Item item, String name) {
+    public Item add(Item item) {
         item.setId(generateId());
-        item.setName(name);
         items[position++] = item;
         return item;
     }
@@ -47,21 +46,29 @@ public class Tracker {
                 tmp[tmpIndex++] = items[index];
             }
         }
-        if (tmpIndex == 0) {
-            return null;
-        } else {
-            return Arrays.copyOf(tmp, tmpIndex);
-        }
+        return Arrays.copyOf(tmp, tmpIndex);
     }
 
     public Item findById(String id) {
-        Item tmp = new Item();
-        for (int index = 0; index < position; index++) {
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
+    }
+
+    private int indexOf(String id) {
+        int rsl = -1;
+        for(int index = 0; index < position; index++) {
             if (items[index].getId().equals(id)) {
-                tmp = items[index];
+                rsl = index;
                 break;
             }
         }
-        return tmp;
+        return rsl;
+    }
+
+    public void replace(String id, Item item) {
+        int replaceIndex = indexOf(id);
+        if(replaceIndex != -1) {
+            items[replaceIndex].setName(item.getName());
+        }
     }
 }
