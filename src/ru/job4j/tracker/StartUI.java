@@ -21,50 +21,31 @@ public class StartUI {
                 Item[] items = tracker.findAll();
                 for(int index = 0; index < items.length; index++) {
                     Item current = items[index];
-                    if (current == null) {
-                        break;
-                    }
                     System.out.println("Id: " + current.getId() + " name: " + current.getName());
                 }
                 System.out.println();
             } else if (select == 2) {
                 System.out.println("--- Edit an Item ---");
-                System.out.println("Enter name: ");
-                String name = scanner.nextLine();
-                Item[] items = tracker.findByName(name);
+                System.out.println("Enter Id: ");
+                String id = scanner.nextLine();
+                Item item = new Item();
                 System.out.println("Enter a new name: ");
-                String newName = scanner.nextLine();
-                for(int index = 0; index < items.length; index++) {
-                    Item current = items[index];
-                    if (current == null) {
-                        break;
-                    }
-                    current.setName(newName);
-                    boolean result = tracker.replace(current.getId(), current);
-                    if (result) {
-                        System.out.println("Replace was successful!");
-                    } else {
-                        System.out.println("Error!");
-                    }
+                item.setName(scanner.nextLine());
+                if (tracker.replace(id, item)) {
+                    System.out.println("Replace was successful!");
+                } else {
+                    System.out.println("Error!");
                 }
                 System.out.println();
             } else if (select == 3) {
                 System.out.println("--- Delete an Item ---");
-                System.out.println("Enter name: ");
-                String name = scanner.nextLine();
-                Item[] items = tracker.findByName(name);
-                for(int index = 0; index < items.length; index++) {
-                    Item current = items[index];
-                    if (current == null) {
-                        System.out.println("No Items found!");
-                        break;
-                    }
-                    boolean result = tracker.delete(current.getId());;
-                    if (result) {
-                        System.out.println("Delete was successful!");
-                    } else {
-                        System.out.println("Error!");
-                    }
+                System.out.println("Enter Id: ");
+                String id = scanner.nextLine();
+                Item item = new Item();
+                if (tracker.delete(id)) {
+                    System.out.println("Delete was successful!");
+                } else {
+                    System.out.println("Error!");
                 }
                 System.out.println();
             } else if (select == 4) {
