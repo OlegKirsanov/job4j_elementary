@@ -25,6 +25,9 @@ public class Matches {
             }
             matches = matches - select;
             System.out.println("На столе осталось " + matches + " спичек.");
+            if(matches == 0) {
+                System.out.println("Игрок " + player + " выиграл!" );
+            }
         }
     }
 }
