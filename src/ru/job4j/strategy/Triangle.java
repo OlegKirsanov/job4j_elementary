@@ -6,10 +6,10 @@ public class Triangle implements Shape{
     @Override
     public String draw(){
         StringJoiner figure = new StringJoiner(System.lineSeparator());
-        figure.add("    +    ");
-        figure.add("   +  +  ");
-        figure.add("  +    + ");
-        figure.add(" ++++++++");
+        figure.add("   +    ");
+        figure.add("  +  +  ");
+        figure.add(" +    + ");
+        figure.add("++++++++");
         return figure.toString();
     }
 }
