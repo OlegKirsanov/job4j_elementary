@@ -14,10 +14,10 @@ public class FindByNameAction implements UserAction {
         if (items.length != 0) {
             for(int index = 0; index < items.length; index++) {
                 Item current = items[index];
-                System.out.println(current.toString());
+                System.out.print(current.toString());
             }
         } else {
-            System.out.println("No Items found!");
+            System.out.print("No Items found!");
         }
         System.out.println();
         return true;
