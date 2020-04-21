@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 public class CreateAction implements UserAction {
     @Override
     public String name() {
-        return "0. Create A New Item";
+        return "Create A New Item";
     }
 
     @Override

@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 public class ShowAction implements UserAction {
     @Override
     public String name() {
-        return "1. Show All Items";
+        return "Show All Items";
     }
 
     @Override
