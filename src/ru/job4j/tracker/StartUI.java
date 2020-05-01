@@ -6,17 +6,17 @@ import java.sql.Statement;
 
 public class StartUI {
 
-    public static void init(Input input, Tracker tracker, UserAction[] actions) {
+    public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
-            StartUI.showMenu(actions);
-            int select = input.askInt("Select: ");
+            this.showMenu(actions);
+            int select = input.askInt("Select: ", actions.length);
             UserAction action = actions[select];
             run = action.execute(input, tracker);
         }
     }
 
-    private static void showMenu(UserAction[] actions) {
+    private void showMenu(UserAction[] actions) {
         System.out.println("Menu:");
         for(int index = 0; index < actions.length; index++) {
             System.out.println(index + ". " + actions[index].name());
@@ -24,7 +24,7 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        Input input = new ConsoleInput();
+        Input validate = new ValidateInput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(),
@@ -35,6 +35,6 @@ public class StartUI {
                 new FindByNameAction(),
                 new ExitAction()
         };
-        new StartUI().init(input, tracker, actions);
+        new StartUI().init(validate, tracker, actions);
     }
 }
