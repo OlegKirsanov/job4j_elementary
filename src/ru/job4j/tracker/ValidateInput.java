@@ -25,7 +25,7 @@ public class ValidateInput extends ConsoleInput {
                 value = super.askInt(question, max);
                 invalid = false;
             } catch (IllegalStateException moe) {
-                System.out.println("Please select a number from 0 to " + (max - 1));
+                System.out.println("Please, select another number.");
             } catch (NumberFormatException nfe) {
                 System.out.println("Invalid data! Enter again, please.");
             }
